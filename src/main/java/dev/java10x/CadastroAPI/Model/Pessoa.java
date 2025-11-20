@@ -17,19 +17,28 @@ public class Pessoa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private  Long id;
+
+    @Column(name = "nome")
     private  String nome;
+
+    @Column(name = "sobrenome")
     private  String sobrenome;
 
-    @Column(unique = true)
+    @Column(unique = true, name = "cpf")
     private  String cpf;
 
-    @Column(unique = true)
+    @Column(unique = true, name = "rg")
     private  String rg;
+
+    @Column(name = "genero")
     private  String genero;
 
-    @Column(unique = true)
+    @Column(unique = true, name = "email")
     private  String email;
+
+    @Column(name = "telefone")
     private  String telefone;
 
     // 🔥 RELACIONAMENTO MANY-TO-MANY
