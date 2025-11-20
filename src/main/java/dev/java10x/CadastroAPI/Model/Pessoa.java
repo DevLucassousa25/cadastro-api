@@ -2,6 +2,9 @@ package dev.java10x.CadastroAPI.Model;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "tb_cadastro")
 public class Pessoa {
@@ -16,6 +19,15 @@ public class Pessoa {
     private  String genero;
     private  String email;
     private  String telefone;
+
+    // 🔥 RELACIONAMENTO MANY-TO-MANY
+    @ManyToMany
+    @JoinTable(
+            name = "tb_pessoa_endereco",
+            joinColumns = @JoinColumn(name = "pessoa_id"),
+            inverseJoinColumns = @JoinColumn(name = "endereco_id")
+    )
+    private Set<Endereco> enderecos = new HashSet<>();
 
     public Pessoa() {}
 
@@ -83,5 +95,13 @@ public class Pessoa {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public Set<Endereco> getEnderecos() {
+        return enderecos;
+    }
+
+    public void setEnderecos(Set<Endereco> enderecos) {
+        this.enderecos = enderecos;
     }
 }
