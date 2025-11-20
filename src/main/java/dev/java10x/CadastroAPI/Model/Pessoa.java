@@ -20,9 +20,15 @@ public class Pessoa {
     private  Long id;
     private  String nome;
     private  String sobrenome;
+
+    @Column(unique = true)
     private  String cpf;
+
+    @Column(unique = true)
     private  String rg;
     private  String genero;
+
+    @Column(unique = true)
     private  String email;
     private  String telefone;
 
