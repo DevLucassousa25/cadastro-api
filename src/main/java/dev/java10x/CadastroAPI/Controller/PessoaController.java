@@ -13,26 +13,21 @@ public class PessoaController {
 
     @GetMapping("/cadastro")
     public String cadastro(){
-        return  "Cadastro API";
+        return  "cadastro API";
     }
 
-    @GetMapping("/exibir")
+    @GetMapping("/listar")
     public String exibir(){
-        return "Exibir API";
+        return "listar API";
     }
 
-    @GetMapping("/exibir/id")
-    public String exibirId(){
-        return "Exibir ID";
-    }
-
-    @PutMapping("/atualizar/id")
+    @PutMapping("/alterar")
     public String atualizar(){
-        return "Atualizar API";
+        return "alterar API";
     }
 
-    @DeleteMapping("/deletar/id")
+    @DeleteMapping("/delete")
     public String deletar(){
-        return "Deletar API";
+        return "delete API";
     }
 }
