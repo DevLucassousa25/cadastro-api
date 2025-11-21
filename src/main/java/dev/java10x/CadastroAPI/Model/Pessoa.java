@@ -3,6 +3,7 @@ package dev.java10x.CadastroAPI.Model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
@@ -13,11 +14,13 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Pessoa {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @EqualsAndHashCode.Include
     private  Long id;
 
     @Column(name = "nome")

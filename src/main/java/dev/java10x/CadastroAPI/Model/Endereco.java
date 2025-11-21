@@ -1,8 +1,10 @@
 package dev.java10x.CadastroAPI.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
@@ -13,11 +15,13 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Endereco {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @EqualsAndHashCode.Include
     private Long id;
 
     @Column(name = "rua")
@@ -38,6 +42,7 @@ public class Endereco {
 
     // 🔥 RELACIONAMENTO MANY-TO-MANY (lado inverso)
     @ManyToMany(mappedBy = "enderecos")
+    @JsonIgnore
     private Set<Pessoa> pessoas = new HashSet<>();
 
 }
