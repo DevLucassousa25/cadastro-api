@@ -37,13 +37,13 @@ public class PessoaController {
         return pessoaService.cadastro(p);
     }
 
-    @PutMapping("/alterar")
-    public String atualizar(){
-        return "alterar API";
+    @PutMapping("/alterar/{id}")
+    public Pessoa atualizar(@PathVariable Long id, @RequestBody Pessoa p){
+        return pessoaService.atualizar(p, id);
     }
 
-    @DeleteMapping("/delete")
-    public String deletar(){
-        return "delete API";
+    @DeleteMapping("/delete/{id}")
+    public void deletar(@PathVariable Long id){
+        pessoaService.delete(id);
     }
 }

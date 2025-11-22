@@ -28,4 +28,18 @@ public class PessoaService {
     public Pessoa cadastro(Pessoa p){
         return repository.save(p);
     }
+
+
+    public Pessoa atualizar(Pessoa p, Long id){
+       if(repository.existsById(id)){
+           p.setId(id);
+           return repository.save(p);
+       }
+
+       return null;
+    }
+
+    public void delete(Long id){
+         repository.deleteById(id);
+    }
 }
