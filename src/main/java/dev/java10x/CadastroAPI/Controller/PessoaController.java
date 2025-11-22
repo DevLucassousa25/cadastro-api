@@ -32,9 +32,9 @@ public class PessoaController {
     }
 
 
-    @GetMapping("/cadastro")
-    public String cadastro(){
-        return  "cadastro API";
+    @PostMapping("/cadastro")
+    public Pessoa cadastro(@RequestBody Pessoa p){
+        return pessoaService.cadastro(p);
     }
 
     @PutMapping("/alterar")

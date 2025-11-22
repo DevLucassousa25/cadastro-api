@@ -24,4 +24,8 @@ public class PessoaService {
         Optional<Pessoa> p = repository.findAllById(id);
         return p.orElse(null);
     }
+
+    public Pessoa cadastro(Pessoa p){
+        return repository.save(p);
+    }
 }
